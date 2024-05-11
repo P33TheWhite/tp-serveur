@@ -48,7 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <th>Login</th>
         </tr>
             <?php
-            // Ouvrir le fichier CSV en mode lecture
             $file = fopen("infoTeacher.csv", "r");
             while (($data=fgetcsv($file)) !== false) {
                 echo "<tr>";

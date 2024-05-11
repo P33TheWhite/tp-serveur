@@ -1,5 +1,4 @@
 <?php
-
 function randomdp() {
     $length=5;
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

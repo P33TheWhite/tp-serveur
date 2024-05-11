@@ -1,9 +1,7 @@
 <?php
 session_start();
 
-// Vérifie si l'utilisateur est déjà connecté
 if (isset($_SESSION['login'])) {
-    // Redirige vers la page d'accueil appropriée en fonction du rôle de l'utilisateur
     if ($_SESSION['login'] == "admin") {
         header("Location: admin.php");
     } else {
