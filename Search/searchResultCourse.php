@@ -11,14 +11,13 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST["sport"])) {
             $sport = $_POST["sport"];
-            // Ouvrir le fichier CSV en mode lecture
             $file = fopen("../Course/infoCourse.csv", "r");
-            $sportFound = false; // Variable pour indiquer si le sport a été trouvé
-            $sportCSV = []; // Tableau pour stocker les lignes correspondant au sport
+            $sportFound = false;
+            $sportCSV = [];
             while (($data = fgetcsv($file)) !== false) {
                 if ($data[5] == $sport) {
-                    $sportFound = true; // Le sport a été trouvé
-                    $sportCSV[] = $data; // Stocker la ligne correspondant au sport dans le tableau
+                    $sportFound = true;
+                    $sportCSV[] = $data; 
                 }
             }     
             if($sportFound) {

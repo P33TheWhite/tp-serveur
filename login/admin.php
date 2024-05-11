@@ -2,8 +2,11 @@
 session_start();
 
 // Vérifie si l'utilisateur est connecté
-if (isset($_SESSION['login'])) {
-    $login = $_SESSION['login'];
+if (!isset($_SESSION['login'])) {
+    // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+    header("Location: login.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -13,16 +16,9 @@ if (isset($_SESSION['login'])) {
     <title>Home Admin</title>
 </head>
 <body>
-    <p>Bienvenue <?php echo $login; ?></p>
+    <p>Bienvenue Admin</p>
     <a href="../Teacher/addTeacher.php">Add new Teacher</a><br><br>
     <a href="../Sport/addSport.php">Add new Sport</a><br><br>
-    <a href="login.php">Logout</a><br><br>
+    <a href="logout.php">Logout</a><br><br>
 </body>
 </html>
-<?php
-} else {
-    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
-    header("Location: login.php");
-    exit();
-}
-?>

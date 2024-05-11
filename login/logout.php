@@ -1,7 +1,8 @@
 <?php
-if (isset($_POST['logout'])) {
-    session_destroy();
-    header("Location: login.php");
-    exit();
-}
-?>
+session_start();
+
+// détruit toutes les variables sessions
+$_SESSION = array();
+
+header("Location: login.php");
+exit();
